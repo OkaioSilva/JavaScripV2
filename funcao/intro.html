@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>funções js</title>
+</head>
+
+<body>
+    <h1>funções em JS</h1>
+
+    <p>são tipos de objetos com a incrivél capacidade de serem invocadas</p>
+    <p>características
+    <ul>
+        <li>Podem ser literais
+            <p>function myFunc(){
+                // corpo da função
+                } </p>
+        </li>
+        <li>Em alguns casos, ocorre o hoisting
+            <p>
+                Hoisting - capacidade do JS de 'içar uma function declaration'
+            <p>
+                exemplo <a href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting">
+                    <script src="hoisting.js"></script>
+                    Hoisting
+                </a>
+            </p>
+            </p>
+        </li>
+        <li>são objetos de primeira classe
+            <p>
+                funções em js são tratadas como qualquer outro objeto. Isso significa que:
+                <ul>
+                    <li>
+                        Passar uma função por parâmetro para outras funções(callback)
+                    </li>
+                    <li>
+                        Podem ser atribuídas em propriedades de  objetos(métodos)
+                    </li>
+                    <li>
+                        Podem ser retornadas como resultado de outra função
+                    </li>
+                    <li>
+                        Podem ter suas próprias propriedades
+                    </li>
+                </ul>
+            </p>
+        </li>
+        <li>No ES5 funções são a única maneira de gerar escopo</li>
+        <li>Podem ser IIFE(Immediately invoked Function Expression)
+            <p>
+                Evitam poluir o escopo global, gerando um escopo isolado
+                <p>
+                    (function(){ <br>
+                        // corpo
+                    <br>})()
+                </p>
+            </p>
+            <p>
+                Não vai precisar de IIFE se:
+                <ul>
+                    <li>
+                        Usar um <a href="https://www.youtube.com/watch?v=5IG4UmULyoA">Bundle</a> (Webpack, Parcel, outros)
+                        
+
+                    </li>
+                    <li>
+                        Usar ESModules(browsers modernos)
+                    </li>
+                    <li>Programar em Node</li>
+                </ul>
+            </p>
+        </li>
+        <li>Podem ter propriedades internas como arguments e name</li>
+    </ul>
+    </p>
+</body>
+
+</html>

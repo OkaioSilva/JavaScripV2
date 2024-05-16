@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>seção 39, aula 490</title>
 </head>
+
 <body>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis voluptatum assumenda quam nesciunt at non, magni
+        nam cumque magnam temporibus dolorum perspiciatis necessitatibus voluptatibus, quasi nemo explicabo voluptas
+        molestiae. Fugit?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis voluptatum assumenda quam nesciunt at non, magni
+        nam cumque magnam temporibus dolorum perspiciatis necessitatibus voluptatibus, quasi nemo explicabo voluptas
+        molestiae. Fugit?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis voluptatum assumenda quam nesciunt at non, magni
+        nam cumque magnam temporibus dolorum perspiciatis necessitatibus voluptatibus, quasi nemo explicabo voluptas
+        molestiae. Fugit?</p>
     <script>
         // Array.from() = serve para criar um array a partir de outra array ou um obj que parece um array(nodelist, por exemplo)
 
@@ -23,19 +34,47 @@
         // passando um único número, por exemplo:
         const arr1 = new Array(3) // vai criar uma array com 3 posições vazias
         // (3) [empty x 3]
-        console.log(arr1) 
+        console.log(arr1)
         console.log(arr1.length) // 3
-        
+
         const arr3 = Array.of(3) // vai criar uma array, com 3 posições colocando um único número 3 lá
-        
+
         console.log(arr3) // (3)
         console.log(arr3.length) // 1
 
         const arr2 = Array.from(arr1)
-        arr2.push(4,5)
+        arr2.push(4, 5)
         /* console.log(arr2)  */
 
+        let paragrafo = document.querySelectorAll('p')
+        console.log(paragrafo) // parece com array
+        /*  paragrafo.forEach(function(p,i){
+            p.textContent = `${++i} - ${p.textContent}`
+         })  */
+
+        // isso funciona, mas o .map não
+        // pois o .map não existe em objts nodelist
+
+        
+        /* paragrafo.map(function (p, i) {
+            p.textContent = `${++i} - ${p.textContent}`
+        }) 
+        erro = paragrafo.map is not a function
+        
+        */
+
+        // mas posso transformar 'paragrafo' em um objeto tipo array de verdade
+        // dessa forma:
+
+        paragrafo = Array.from(paragrafo)
+
+        // agora o '.map' vai funcionar
+
+        paragrafo.map(function (p, i) {
+            p.textContent = `${++i} - ${p.textContent}`
+        }) 
 
     </script>
 </body>
+
 </html>

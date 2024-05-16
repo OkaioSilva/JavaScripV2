@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Array.from() = serve para criar um array a partir de outra array ou um obj que parece um array(nodelist, por exemplo)
+
+        /* 
+        const arr1 = new Array(1,2,3)
+        console.log(arr1) // [1,2,3]
+
+        const arr2 = Array.from(arr1)
+        arr2.push(4,5)
+        console.log(arr2) // [1,2,3,4,5]
+        */
+
+        // Array.of() = também cria arrays, só que ele é especialmente útil, quando eu for criar uma nova array 
+        // como se fosse esta sintaxe:
+        // passando um único número, por exemplo:
+        const arr1 = new Array(3) // vai criar uma array com 3 posições vazias
+        // (3) [empty x 3]
+        console.log(arr1) 
+        console.log(arr1.length) // 3
+        
+        const arr3 = Array.of(3) // vai criar uma array, com 3 posições colocando um único número 3 lá
+        
+        console.log(arr3) // (3)
+        console.log(arr3.length) // 1
+
+        const arr2 = Array.from(arr1)
+        arr2.push(4,5)
+        /* console.log(arr2)  */
+
+
+    </script>
+</body>
+</html>

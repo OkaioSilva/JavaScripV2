@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>teste DOM</h1>
+    <div class="container">
+        <p>teste 1</p>
+        <p>lorem <a href="#"> link </a> Eii </p>
+        <p>teste 2</p>
+
+        <h2>Lista</h2>
+        <ul>
+            <li>item 1</li>
+            <li>item 2
+                <ul>
+                    <li>item 2.a</li>
+                    <li>item 2.b</li>
+                    <li>item 2.c</li>
+                    <li></li>
+                </ul>
+            </li>
+            <li>item <a href="#">link</a></li>
+        </ul>
+    </div>
+
+    <script>
+        // criando um elemento pelo DOM
+        const title = document.createElement('h1')
+        
+        // atributo
+        const atributo = document.createAttribute('id')
+        
+        // atribuir o valor no atributo
+        atributo.value = 'title_1'
+        
+        // vinclular o atributo no h1
+        title.setAttributeNode(atributo)
+
+        // posso, simplesmente usar o setAttribute(), passando o atributo e o valor
+        // title.setAttribute('tipo de atributo(id,class,title..)', 'valor') 
+        // title.setAttribute('title2', 'título inserido dinamicamente') 
+        title.setAttribute('id', 'id2')
+        // texto dentro do h1
+        const text = document.createTextNode('Criar nós no DOM')
+        title.appendChild(text)
+        console.log(title)
+
+    </script>
+</body>
+
+</html>

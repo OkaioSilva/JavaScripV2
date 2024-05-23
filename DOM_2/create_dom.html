@@ -5,10 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        .container2{
+            background-color: #ccc;
+            padding: 15px;
+        }
+        .container2 p {
+            border: 2px solid red;
+            margin: 15px;
+            padding: 15px;
+        }
+    </style>
 </head>
 
 <body>
     <h1>teste DOM</h1>
+    <!-- beforebegin -->
+    <div class="container2">
+        <!-- afterbegin -->
+        <p>paragráfo 1</p>
+        <p>paragráfo 2</p>
+        <p>paragráfo 3</p>
+        <!-- beforeend -->
+    </div>
+    <!-- afterend -->
+    
+
     <div class="container">
         <p>teste 1</p>
         <p>lorem <a href="#"> link </a> Eii </p>
@@ -32,13 +55,13 @@
     <script>
         // criando um elemento pelo DOM
         const title = document.createElement('h1')
-        
+
         // atributo
         const atributo = document.createAttribute('id')
-        
+
         // atribuir o valor no atributo
         atributo.value = 'title_1'
-        
+
         // vinclular o atributo no h1
         title.setAttributeNode(atributo)
 
@@ -50,7 +73,69 @@
         const text = document.createTextNode('Criar nós no DOM')
         title.appendChild(text)
         console.log(title)
+        //document.querySelector('.container').appendChild(title)
 
+
+        // append() e prepend()
+        //append = a partir do elemento pai, no caso aqui é o container, ele irá por o append
+
+        // document.querySelector('.container').append(title)
+
+        // prepend = irá por antes do primeiro filho
+
+        //document.querySelector('.container').prepend(title)
+
+        // aceitam mais de um parâmentro 
+
+        //document.querySelector('.container').prepend(title, 'texto novo') 
+
+        // insertBefore() = espera receber 2 parâmetros(filho novo, nó de referência)
+        const title2 = document.createElement('h1')
+        title2.textContent = ' título 2'
+        const list = document.querySelector('ul')
+        const container = document.querySelector('.container')
+
+        container.insertBefore(title2, list)
+        container.insertBefore(title2, container.firstChild) // Cross browser
+
+        // cloneNode() = por padrão, só clona o nó, mas não os filho dentro desse nó.
+        // Se receber "true" como parâmetro, aí sim clona os filhos
+
+        let sublevel = document.querySelector('ul ul')
+        sublevel = sublevel.cloneNode(true) // vai clonar os filhos da segunda ul 
+        const h2 = document.querySelector('h2')
+        container.insertBefore(sublevel, h2.nextElementSibling)
+
+        // after e before
+        // aceitam dois parâmetros, podendo ser textos ou nós
+
+        const segundoParagrafo = container.firstElementChild.nextElementSibling.nextElementSibling
+        console.log(segundoParagrafo)
+
+        segundoParagrafo.after('texto inserido com after')
+        segundoParagrafo.before('texto inserido com before')
+
+
+        //insertAdjacentElement, insertAdjacentHTML, insertAdjacentText
+        // dois parametros ( posição(valores no container2), o que quero inserir )
+
+        const container2 = document.querySelector('.container2')
+
+        container2.insertAdjacentHTML('beforebegin', '<b> texto inserido beforebegin</b>')
+        // proprio nome diz, nessa você usa com tags html
+        container2.insertAdjacentHTML('afterbegin', '<b> , texto inserido afterbegin</b>')
+        container2.insertAdjacentHTML('beforeend', '<b> texto inserido beforeend</b>')
+        container2.insertAdjacentHTML('afterend', '<b> texto inserido afterend</b>')
+
+        //insertAdjacentText
+        container2.insertAdjacentText('beforebegin', ' <b> text </b>')
+        // espera receber apenas textos
+
+        //insertAdjacentElement = é basicamente a mesma coisa, a diferença é que temos que criar um nó antes
+
+        const em = document.createElement('em')
+        em.textContent = 'texto com enfase'
+        container2.insertAdjacentElement('afterbegin', em)
     </script>
 </body>
 

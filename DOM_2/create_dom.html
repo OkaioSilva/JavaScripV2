@@ -7,10 +7,11 @@
     <title>Document</title>
 
     <style>
-        .container2{
+        .container2 {
             background-color: #ccc;
             padding: 15px;
         }
+
         .container2 p {
             border: 2px solid red;
             margin: 15px;
@@ -30,7 +31,7 @@
         <!-- beforeend -->
     </div>
     <!-- afterend -->
-    
+
 
     <div class="container">
         <p>teste 1</p>
@@ -136,6 +137,30 @@
         const em = document.createElement('em')
         em.textContent = 'texto com enfase'
         container2.insertAdjacentElement('afterbegin', em)
+
+
+
+        // romove()
+
+        //list.remove()
+
+        // não funciona no IE 11. Se precisar, terá que fazer assim:
+
+        //parentNode.removeChild(Node)
+        list.parentNode.removeChild(list)
+
+
+
+        // replaceChild(novo, velho) = vai substituir os nós de lugar
+
+        const parent = document.body
+        const newChild = container.querySelector('h1')
+        const oldChild = document.querySelector('h1')
+
+        parent.replaceChild(newChild, oldChild)
+
+
+
     </script>
 </body>
 

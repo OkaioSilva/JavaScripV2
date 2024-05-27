@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Eventos</h1>
+        <button id="btn1">botão 1</button>
+        <button id="btn2">botão 2</button>
+        <button id="btn3">botão 3</button>
+
+    </div>
+    <script>
+        const btn1 = document.getElementById('btn1')
+        const btn2 = document.getElementById('btn2')
+        const btn3 = document.getElementById('btn3')
+
+
+        // DOM LEVEL 0
+        function clicou() {
+            console.log('click função clicou ')
+        }
+        btn1.onclick = function () {
+            console.log('click btn1 função anonima')
+        }
+
+        btn1.onclick = clicou
+
+        // não consigo ter duas funções atreladas ao mesmo elemento HTML
+
+        btn2.addEventListener('click', clicou)
+        btn2.addEventListener('click', function () {
+            console.log('clik função anonima')
+        })
+        
+        // propagação
+        const container = document.querySelector('.container')
+        
+        btn3.addEventListener('click', function () {
+            e.stopPropagation()
+            console.log('clicou no btn3')
+        })
+        container.addEventListener('click', function(e){
+            e.stopPropagation()
+            console.log('clicou na div')
+        }, true)
+        // clicou na div
+        // clicou no btn3
+
+        // o object event
+        /* 
+            container.addEventListener('click', function(e){
+            e.stopPropagation()
+            console.log('clicou na div')
+        }, true)
+
+        dessa forma, não haverá mais propagação de eventos, ou seja, seguindo o código acima, o evento de click no btn3 não apareceria no console
+        
+        */
+    </script>
+</body>
+
+</html>

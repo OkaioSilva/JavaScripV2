@@ -70,18 +70,18 @@
     </div>
 
     <script type="text/javascript">
-		// crie um nova li com texto "item 2" e a inclua na ul de div com class .alvo
+        // crie um nova li com texto "item 2" e a inclua na ul de div com class .alvo
 
-		//Mova a última li de orignal para alvo (mas antes da primeira li). 
+        //Mova a última li de orignal para alvo (mas antes da primeira li).
         //Em outras palavras, a última li da original deve virar a primeira li de alvo
 
-		//altere o texto da primeira li de .alvo para "item 0"
+        //altere o texto da primeira li de .alvo para "item 0"
 
-		//clone a ul de .original e a inclua na primeira li de .alvo
+        //clone a ul de .original e a inclua na primeira li de .alvo
 
-		//remova a ultima li (item2) da lista inserida na etapa anterior
+        //remova a ultima li (item2) da lista inserida na etapa anterior
 
-		//remova as duas li's que sobraram na ul original
+        //remova as duas li's que sobraram na ul original
 
 
     </script>
@@ -89,17 +89,39 @@
     <script>
         const alvo = document.querySelector('.alvo')
         const original = document.querySelector('.original')
-        
         const li = document.createElement('li')
         const texto = document.createTextNode('item 2')
         alvo.appendChild(li)
+
         li.appendChild(texto)
         li.style.listStyle = 'none'
 
+        const list1 = original.querySelector('ul')
+        const list2 = alvo.querySelector('ul')
+        list2.insertAdjacentElement('beforeend', li)
+
         // mover li 'item 3'
-        
+        const item3 = list1.lastElementChild
+        item3.style.listStyle = 'none'
+        list2.insertAdjacentElement('afterbegin', item3)
 
+        // alterar item 3 para item 0
+        item3.textContent = 'item 0'
 
+        //clone ul original
+        const clone = list1.cloneNode(true)
+
+        //inserir o clone dentro da primeira li alvo
+
+        item3.insertAdjacentElement('beforeend', clone)
+
+        //remover item2 inserida anteriormente
+        //clone.lastElementChild.remove()
+        clone.removeChild(clone.lastElementChild)
+
+        // romova as duas li's que sobraram na original
+
+        list1.remove()
     </script>
 </body>
 

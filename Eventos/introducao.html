@@ -15,6 +15,12 @@
         <button id="btn3">botão 3</button>
 
     </div>
+    <hr>
+    <div class="container2">
+        <button>botão 1</button>
+        <button>botão 2</button>
+        <button>botão 3</button>
+    </div>
     <script>
         const btn1 = document.getElementById('btn1')
         const btn2 = document.getElementById('btn2')
@@ -37,15 +43,15 @@
         btn2.addEventListener('click', function () {
             console.log('clik função anonima')
         })
-        
+
         // propagação
         const container = document.querySelector('.container')
-        
+
         btn3.addEventListener('click', function () {
             e.stopPropagation()
             console.log('clicou no btn3')
         })
-        container.addEventListener('click', function(e){
+        container.addEventListener('click', function (e) {
             e.stopPropagation()
             console.log('clicou na div')
         }, true)
@@ -62,6 +68,58 @@
         dessa forma, não haverá mais propagação de eventos, ou seja, seguindo o código acima, o evento de click no btn3 não apareceria no console
         
         */
+
+
+        const container2 = document.querySelector('.container2')
+        const btns = document.querySelectorAll('.container2 button')
+
+        // ;[...btns].forEach(btn => {
+        //     btn.addEventListener('click', function(e){
+        //         e.stopPropagation
+        //         console.log(e.target)
+        //     })
+        // })
+
+        // Mas e se eu tiver mais botões ? tipo, 45. Dai vou ter 45 listeners... Isso pode ser um problema de performace para aplicação
+        // maneira mais inteligente é por um listeners no container
+
+        
+        
+        //container2.addEventListener('click', function (e) {
+        //    e.stopPropagation
+        //    //console.log(e.target)
+
+            // Ainda há um problema, que é: se eu clicar fora do botão, mas ainda dentro do container, ele tbm aciona a função
+            // então:
+        //    if (e.target.nodeName === "BUTTON") {
+        //        console.log(e.target)
+        //    }
+        //})
+
+
+        //target e currentTarget
+
+        //- target é o alvo, ou seja, o que recebeu o clique, o evento
+
+        //- currentTarget é o elemento ao qual foi atrelado o addEventListener
+
+        // E ainda nesse contexto, temos o 'this' que pode variar, porém no caso desse tipo de evento, o this vai ser a mesma coisa do currentTarget
+        //- this é o elemento ao qual foi atrelado a função.
+        //Porém, se for uma arrow function, o this não é mais dinâmico, ele passa a ser estático. Veja:
+
+        console.log('this ----', this) // aqui o this é o objeto window
+        container2.addEventListener('click',  (e) => {
+           // e.stopPropagation
+            console.log('clicou no container2')
+            console.log(e.target)
+            console.log(e.currentTarget)
+            //console.log(this)  dinâmico com a function expression
+            console.log(this) // objeto window com arrow funtion
+            
+            
+        })
+
+
     </script>
 </body>
 

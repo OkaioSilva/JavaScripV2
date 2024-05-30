@@ -1,53 +1,37 @@
 (function () {
     'use strict'
-    // variáveis 
-    const txtTitulo = document.getElementById('txtTitulo')
-    const btn = document.getElementById('btn')
-    const formCadastro = document.querySelector('.formCadastro')
-    const feedbackMessage = document.getElementById('feedbackMessage')
-    const feedbackMessageCloseBtn = feedbackMessage.getElementsByTagName('button')[0]
-    const txtDescricao = document.getElementById('txtDescricao')
-    const contadorContainer = document.getElementById('contador')
-    const resta = contadorContainer.getElementsByTagName('span')[0]
-    const maxima = txtDescricao.maxLength
-    //btn.addEventListener('click', function(e){
-    //    console.log(txtTitulo.value)
-    //    if (!txtTitulo.value){
-    //        alert('Preencha todos os campos')
-    //        e.preventDefault() // previne o comportamento padrão, nesse caso, o envio do formulário
-    // dar foco no input
-    //        txtTitulo.focus()
-    //    }
-    //})
+    const txtTitulo = document.querySelector('#txtTitulo')
+    const btn = document.querySelector('#btn')
+    const formCadatro = document.querySelector('.formCadastro')
 
-    // fazer o evento no envio do formulário
-    formCadastro.addEventListener('submit', function (e) {
-        console.log(txtTitulo.value)
+    formCadatro.addEventListener('submit', function (e) {
         if (!txtTitulo.value) {
-            showErrorMsg('Preencha todos os campos', function () {
-
+            showErrorMessage('Preencha todos os campos', function () {
                 txtTitulo.focus()
             })
-            e.preventDefault()
         }
+        e.preventDefault()
     })
+    const feedbackMessage = document.querySelector('#feedbackMessage')
+    const feedbackMessageCloseBtn = feedbackMessage.getElementsByTagName('button')[0]
 
-    function showErrorMsg(msg, cb) {
-        // feedbackMessage.setAttribute('class', 'show')
-        //quando estamos trabalhando com classes, usar isso não é o ideal, pois posso ter mais de uma classe num elemento, o ideal é utilizar uma API específica
+    function showErrorMessage(msg, cb) {
         feedbackMessage.classList.add('show')
         feedbackMessage.getElementsByTagName('p')[0].textContent = msg
+
         feedbackMessageCloseBtn.focus()
 
         function hideErrorMessage() {
+            console.log('clicou no close')
             feedbackMessage.classList.remove('show')
+
             feedbackMessageCloseBtn.removeEventListener('click', hideErrorMessage)
             feedbackMessageCloseBtn.removeEventListener('keyup', pressedKeyboardOnBtn)
 
-            if (cb === 'function') {
+            if (typeof cb === 'function') {
                 cb()
             }
-        };
+        }
 
         function pressedKeyboardOnBtn(e) {
             if (e.keyCode === 27) {
@@ -57,29 +41,34 @@
 
         feedbackMessageCloseBtn.addEventListener('click', hideErrorMessage)
         feedbackMessageCloseBtn.addEventListener('keyup', pressedKeyboardOnBtn)
-
     }
 
+
+
+    const txtDescricao = document.querySelector('#txtDescricao')
+    const contadorContainer = document.querySelector('#contador')
+    const resta = document.getElementsByTagName('span')[0]
+    const maxima = txtDescricao.maxLength
     mostrarNumero(maxima)
 
-    contadorContainer.removeAttribute('style')
+    contadorContainer.style.display = 'block'
 
-    function checkLength() {
-        let nLetrasDigitadas = this.value.length
-        let caracterRestante = parseInt(maxima - nLetrasDigitadas)
+    function checkedLength() {
+        let numeroLetrasDigitadas = this.value.length
+        let caracterRestante = parseInt(maxima - numeroLetrasDigitadas)
         mostrarNumero(caracterRestante)
     }
+
     function mostrarNumero(n) {
         resta.textContent = n
     }
-    // evento 'input' é sempre que ocorrer uma alteração no meu input
-    txtDescricao.addEventListener('input', checkLength)
+    txtDescricao.addEventListener('input', checkedLength)
 
     btn.disabled = true
-    const chkAceito = document.getElementById('chkAceito')
 
-    function changechk() {
+    const chkAceito = document.querySelector('#chkAceito')
+    chkAceito.addEventListener('change', function () {
+        // btn.disabled = false
         btn.disabled = !this.checked
-    }
-    chkAceito.addEventListener('change', changechk)
+    })
 })()

@@ -22,11 +22,50 @@
 
     function generateLiTask(obj) {
         const li = document.createElement('li')
-        li.className = 'todo-item'
         const p = document.createElement('p')
+        const button = document.createElement('button')
+        const editButton = document.createElement('i')
+        const deleteButton = document.createElement('i')
+        
+
+        li.className = 'todo-item'
+
+        button.className = 'button-check'
+        button.innerHTML = '<i class="fas fa-check displayNone"></i>'
+        // i.className = 'fas fa-check'
+
+        li.appendChild(button)
+
         p.className = 'task-name'
         p.textContent = obj.name
         li.appendChild(p)
+        editButton.className = "fas fa-edit"
+        li.appendChild(editButton)
+
+        const containerEdit = document.createElement('div')
+        containerEdit.className = 'editContainer'
+        const inputEdit = document.createElement('input')
+        inputEdit.setAttribute('type', 'text')
+        inputEdit.className = 'editInput'
+        containerEdit.appendChild(inputEdit)
+        
+        const containerEditButton = document.createElement('button')
+        containerEditButton.className = 'editButton'
+        containerEditButton.textContent = 'Edit'
+        containerEdit.appendChild(containerEditButton)
+        
+        const containerCancelButton = document.createElement('button')
+        containerCancelButton.className = 'cancelButton'
+        containerCancelButton.textContent = 'Cancel'
+        containerEdit.appendChild(containerCancelButton)
+
+        li.appendChild(containerEdit)
+        
+        deleteButton.className = "fas fa-trash-alt"
+        inputEdit.className = 'editInput'
+        //li.appendChild(deleteButton)
+
+
         addEventLi(li)
         return li
     }

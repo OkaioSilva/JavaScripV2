@@ -62,9 +62,8 @@
         li.appendChild(containerEdit)
         
         deleteButton.className = "fas fa-trash-alt"
-        inputEdit.className = 'editInput'
-        //li.appendChild(deleteButton)
-
+        li.appendChild(deleteButton)
+    
 
         addEventLi(li)
         return li

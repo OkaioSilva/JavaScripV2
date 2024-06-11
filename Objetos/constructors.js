@@ -75,6 +75,10 @@
 // Assim, pode resolver:
 
 function Task(name) {
+    'use strict' 
+    // o 'use strict' vai impedir que, se o operador não for usado, createdAt seja definido no escopo global
+    // gerando um erro e não poluindo o escopo global
+   
     let _name = name // lembrando que essa variável só existe nesse escopo, então não tenho acesso fora dele
     // o que fazer então ?
     // posso criar um método para recuperar esse nome...

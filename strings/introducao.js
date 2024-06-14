@@ -90,3 +90,5 @@ console.log(str3.charAt(1)) //b
 console.log(str3.charCodeAt(0)) // no caso, 'a' = 97
 
 
+
+

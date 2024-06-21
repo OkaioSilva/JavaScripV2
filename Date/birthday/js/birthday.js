@@ -9,6 +9,7 @@ function quantoFaltaPara(m, d) {
 
     const bday = new Date(ano_atual, m - 1, d)
 
+    //const d_AtualTs = data_atual.getTime()   ou:
     const d_AtualTs = +data_atual
     let bDayTs = +bday
 

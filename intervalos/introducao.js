@@ -9,7 +9,11 @@ setTimeout(function(){
 }, 2000)
 const intervalo = setInterval(function () {
     console.log("interval n:", n++)
-    if(n > 10){
+    if(n > 10){ 
         clearInterval(intervalo)
     }
 }, 1200)
+
+
+// lembrando que o JavaScript é SINGLE THREAD
+// Um processo por vez é executado e não dois processos concorrentes 

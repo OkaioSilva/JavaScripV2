@@ -1,0 +1,40 @@
+Estilização visual
+
+
+-Propriedade STYLE
+-> serve para obter um determinado valor de uma propriedade, como também serve para setar um valor de uma propriedade
+
+-------> let prop = elemento.style.propriedade
+         elemento.style.propriedade
+
+
+
+-Objeto classList
+
+* add()
+* remove()
+* toggle()
+
+
+-Estilos computados
+-> vai mostrar os estilos computados pelo UserAgent
+
+* getComputedStyle()
+
+
+Tamanho e posição no documento
+-> é a posição de um elemento em relação ao documento
+
+* elemento.offsetHeight
+* elemento.offsetWidth
+* elemento.offsetLeft
+* elemento.offsetTop
+
+
+Posição em relação à viewport
+-elemento.getBoundingClientRect().
+* bottom
+* left
+* right
+* width
+* height

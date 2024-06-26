@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM</title>
+</head>
+<body>
+    <h1>History</h1>
+    <button id="btnBack">volta</button>
+    <button id="btnForward">avança</button>
+    <button id="btnClose">método close</button>
+
+
+    <script>
+        document.getElementById("btnBack").addEventListener('click', function(){
+            history.back()
+        })
+        
+        document.getElementById("btnForward").addEventListener('click', function(){
+            history.forward()
+        })
+
+        document.getElementById("btnClose").addEventListener('click', function(){
+            close()
+        })
+    </script>
+    
+</body>
+</html>

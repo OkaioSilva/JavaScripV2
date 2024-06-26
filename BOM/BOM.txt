@@ -1,0 +1,80 @@
+BOM
+Browser Object Model
+O BOM é uma maneira de interagir com o browser. Na verdade, ele é um objeto que nos oferece propriedades e métodos usados quando queremos interagir com o browser
+
+Algumas propriedades
+
+innerHeight - innerWidth --> Propriedades relativas ao tamanho do meu browser, da área útil ( área do conteúdo )
+lembre-se que o zoom pode afetar os valores dessas propriedades
+
+outerHeight - outerWidth --> Esses caras dizem respeito ao tamanho do meu browser em si, do tamanho da janela inteira
+
+
+screenX e screenY --> dizem respeito a posição do meu browser na tela
+
+
+HISTORY --> diz respeito as informações sobre a navegação do usuário 
+algumas propriedades:
+.back() = volta na página acessada anteriormente
+.forward() = avança na página acessada posteriormente
+.go() = mesma coisa que o forward
+
+
+
+LOCATION --> informações sobre a URL atual
+alguns métodos interessantes:
+.assign() = pode ser passado uma url por parâmetro, usando string...
+exemplo: localtion.assign("http://google.com.br")
+
+- Esse método navega e altera o length no history, ou seja, ele insere um novo elemento no histórico 
+
+
+.reload() = recarrega a página e não altera o histórico de navegação 
+
+
+.replace() = também irá fazer a navegação, porém, não irá alterar o length do history
+
+
+
+
+
+
+NAVIGATOR --> serve para me dar dicas sobre o User Agent
+-Sempre que precisar obter informações sobre o ambiente de hospedagem que está abrindo o seu arquivo, pode utilizar o NAVIGATOR
+
+
+
+SCREEN --> informações sobre a tela ( o monitor, não o browser)
+
+
+
+
+
+Alguns métodos window
+
+alert()
+confirm()
+prompt()
+open() - posso passar alguns parâmetros ( olhar na MDN)
+close() - só vai funcionar, se eu tiver aberto a pág com o método open()
+print() - printar a tela
+
+- quando acesso uma página com o método open(), posso ter um cara chamado opener que vai armazenar o objeto window, mas será o window da página que usou o método para abrir. No nosso exemplo, será o obj window do index introdução
+
+
+
+
+
+
+PRINCIPAIS EVENTOS
+
+- load -> é disparado quando toda a minha página é carregada, inclusive os assets, imagens etc
+- DOMContentLoaded -> É disparado quando a minha estrutura do DOM (nós, objetos nodeElements, etc) já estiverem disponíveis para serem manipulados pelo js
+- resize - vai ser disparado toda vez que eu alterar o tamanho do width
+- Scroll
+- Unload e beforunload
+
+
+
+
+

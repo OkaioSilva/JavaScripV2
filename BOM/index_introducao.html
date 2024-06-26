@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM</title>
+</head>
+<body>
+    <h1>teste BOM - js</h1>
+    <a href="index.html">Voltar para history</a>
+    <button>abre com o método open</button>
+
+    <script>
+        document.querySelector("button").addEventListener('click', function(){
+            open('index.html')
+        })
+
+
+        window.addEventListener('load', function(){
+            console.log("load")
+        })
+
+        window.addEventListener('DOMContentLoaded', function(){
+            console.log("DOMContentLoaded")
+        })
+        window.addEventListener('resize', function(){
+            console.log("resize", innerWidth, innerHeight)
+        })
+        window.addEventListener('scroll', function(){
+            console.log("scroll", pageYOffset)
+        })
+    </script>
+    
+</body>
+</html>
